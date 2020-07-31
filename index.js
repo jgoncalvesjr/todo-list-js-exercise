@@ -1,11 +1,42 @@
+function newTask(title, description) {
+  const task = {
+    title: title,
+    description : description,
+    complete: false,
+    logState: function() {
+      console.log(`${this.title} has${this.complete ? ' ' : ' not '}been completed`);
+    },
+    markCompleted: function () {
+      this.complete = true;
+    }
+  };
+  return task;
+}
+
+// Driver code below
+
+const task1 = newTask('Clean the cat litter', 'Take all the poop out of the litter box');
+const task2 = newTask('Do laundry', 'Wash that dirty underwear');
+const tasks = [task1, task2];
+
+task1.logState(); // not completed
+task1.markCompleted();
+task1.logState(); // completed
+
+console.log(tasks);
+
+/*
+
 // Arrays to keep track of each task's state
 const taskTitles = [];
 const taskComplete = [];
+const taskDescriptions = [];
 
 // Create a new task by adding to the arrays
 // A new task will be created as incomplete
-function newTask(title) {
+function newTask(title, description) {
   taskTitles.push(title);
+  taskDescriptions.push(description);
   taskComplete.push(false);
 }
 
@@ -29,3 +60,6 @@ newTask("Do Laundry"); // task 1
 logTaskState(0); // Clean Cat Litter has not been completed
 completeTask(0);
 logTaskState(0); // Clean Cat Litter has been completed
+
+
+*/
